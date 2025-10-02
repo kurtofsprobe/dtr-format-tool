@@ -47,12 +47,15 @@ export default function MainComponent () {
         <div className="flex items-center gap-3">
           <label htmlFor="">Progress</label>
           <input 
-            type="number" 
-            min="0" 
-            max="100" 
+            type="text" 
+            inputMode="numeric"
+            pattern="[0-9]*"
             className="input w-20"
-            value={Number.isNaN(percent) ? 0 : percent}
-            onChange={e => setPercent(Number(e.target.value))}  
+            value={percent === null ? '' : percent}
+            onChange={e => {
+              const val = e.target.value;
+              setPercent(Number(e.target.value));
+            }}  
             />
         </div>
 
