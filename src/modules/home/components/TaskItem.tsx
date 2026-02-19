@@ -4,8 +4,6 @@ import type { Status } from "@/common/constants/status";
 export type Task = {
   id: string,
   details: string,
-  percent: number,
-  status: Status,
 };
 
 type TaskItemProps = {
@@ -18,10 +16,10 @@ const TaskItem = React.memo(({ task, onRemove, className }: TaskItemProps) => {
   return (
     <div 
       key={task.id} 
-      className="flex items-start gap-2 rounded border p-2 text-sm max-w-full"
+      className="flex items-center gap-2 rounded border p-2 text-sm max-w-full"
     >
-      <p className="flex-1 basis-0 min-w-0 max-w-full">
-        {task.percent}% [{task.status}] {task.details}
+      <p className="flex-1 basis-0 min-w-0 max-w-full items-center">
+        • {task.details}
       </p>
       <div className="ml-2 flex-shrink-0">
         <button className="btn btn-ghost shrink-0" onClick={() => onRemove(task.id)} title="Remove">

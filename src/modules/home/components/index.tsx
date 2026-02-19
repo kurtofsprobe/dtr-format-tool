@@ -4,8 +4,8 @@ import TaskList from "./TaskList";
 
 export default function MainComponent () {
   const {
-    tasks, details, percent, date, report,
-    setDetails, setPercent, setDate, setReport,
+    tasks, details, date, report,
+    setDetails, setDate, setReport,
     canAdd, handleAdd, handleRemove, generateReport,
   } = useLogic();
 
@@ -41,21 +41,6 @@ export default function MainComponent () {
             value={details}
             onChange={e => setDetails(e.target.value)}
             placeholder="Study the frontend flow of component"
-            />
-        </div>
-        
-        <div className="flex items-center gap-3">
-          <label htmlFor="">Progress</label>
-          <input 
-            type="text" 
-            inputMode="numeric"
-            pattern="[0-9]*"
-            className="input w-20"
-            value={percent === null ? '' : percent}
-            onChange={e => {
-              const val = e.target.value;
-              setPercent(Number(e.target.value));
-            }}  
             />
         </div>
 
